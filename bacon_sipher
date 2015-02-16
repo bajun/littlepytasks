@@ -1,0 +1,36 @@
+encoded_string = ' I canT DAnCE i CANt TAlK Hey'
+
+def bacon(input_word):
+  import re
+  key = 'aaaaabbbbbabbbaabbababbaaababaab'
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  
+  #match all non-alphabetic and none-numeric
+  #implode string
+  pattern = '\W+' 
+  paragraph = re.sub(pattern,'',input_word)
+  
+  #split string for 5 chars-array
+  splitted = re.findall('.....?',paragraph)
+  
+  #convert to a|b
+  new_splitted = []
+  let_ = ''
+  for l in splitted:
+    for let in l:
+      if(let.isupper()):
+        let_+=str('b')
+      else:
+        let_+=str('a')    
+    new_splitted.append(let_)
+    let_ = ''
+  
+  #decode and return decoded by key and alphabet string
+  decoded = ''
+  for symbol in new_splitted:
+    decoded += alphabet[key.find(symbol)]
+  
+  return decoded
+  
+
+print(bacon(encoded_string))
